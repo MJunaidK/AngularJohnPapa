@@ -53,7 +53,7 @@ var MjkModule = angular.module('mjk', [_app2.default.name, _routes2.default.name
 
 exports.default = MjkModule;
 
-},{"./app.config":1,"./app.deps":2,"./app.run":4,"./src/routes/routes.module":101}],4:[function(require,module,exports){
+},{"./app.config":1,"./app.deps":2,"./app.run":4,"./src/routes/routes.module":100}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -44915,12 +44915,7 @@ exports.default = myProfileModule;
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-
-var _salaryDetails = require('./salary-details.html');
-
-var _salaryDetails2 = _interopRequireDefault(_salaryDetails);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//import salaryTemplate from './salary-details.html'
 
 function salaryDetailsDirective() {
 	'ngInject';
@@ -44932,7 +44927,7 @@ function salaryDetailsDirective() {
 	var link = function link(scope, element) {};
 
 	return {
-		template: _salaryDetails2.default,
+		templateUrl: "src/components/my-profile/salary-details/salary-details.html",
 		restrict: 'E',
 		scope: {},
 		controller: controller,
@@ -44942,9 +44937,7 @@ function salaryDetailsDirective() {
 
 exports.default = salaryDetailsDirective;
 
-},{"./salary-details.html":96}],96:[function(require,module,exports){
-
-},{}],97:[function(require,module,exports){
+},{}],96:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -44963,7 +44956,7 @@ var allRoutes = [].concat(_toConsumableArray(_allMyProfileRoutes2.default));
 
 exports.default = allRoutes;
 
-},{"./my-profile/all-my-profile.routes.js":98}],98:[function(require,module,exports){
+},{"./my-profile/all-my-profile.routes.js":97}],97:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -44982,7 +44975,7 @@ var allMyProfileRoutes = [].concat(_toConsumableArray(_myProfile2.default));
 
 exports.default = allMyProfileRoutes;
 
-},{"./my-profile.routes":99}],99:[function(require,module,exports){
+},{"./my-profile.routes":98}],98:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -44991,12 +44984,12 @@ Object.defineProperty(exports, "__esModule", {
 var myProfileRoutes = [{
 	name: 'header',
 	url: '/header',
-	templateUrl: '/views/my-profile/header/header.html'
+	templateUrl: 'assets/views/my-profile/header/header.html'
 }];
 
 exports.default = myProfileRoutes;
 
-},{}],100:[function(require,module,exports){
+},{}],99:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -45023,7 +45016,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
 
 exports.default = routesConfig;
 
-},{"./all.routes":97}],101:[function(require,module,exports){
+},{"./all.routes":96}],100:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -45042,6 +45035,6 @@ var RoutesModule = angular.module('mjk.routes', ['ui.router']).config(_routes2.d
 
 exports.default = RoutesModule;
 
-},{"./routes.config":100,"angular-ui-router":8}]},{},[3])
+},{"./routes.config":99,"angular-ui-router":8}]},{},[3])
 
 //# sourceMappingURL=bundle1.js.map
