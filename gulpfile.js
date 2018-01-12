@@ -35,7 +35,7 @@ gulp.task('js',function(){
 
 
 gulp.task('html',function(){
-	gulp.src(['./src/*.html','./assets/**/*.html'])
+	gulp.src(['./**/*.html'])
 		.pipe(gulp.dest('./dist/'))
 		.pipe(browserSync.reload({
 			stream:true

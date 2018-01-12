@@ -1,4 +1,4 @@
-import salaryTemplate from './salary-details.html'
+//import salaryTemplate from './salary-details.html'
 
 function salaryDetailsDirective(){
 'ngInject';
@@ -10,7 +10,7 @@ function salaryDetailsDirective(){
 	var link=function(scope,element){};
 	
 	return{
-		template:salaryTemplate,
+		templateUrl:"src/components/my-profile/salary-details/salary-details.html",
 		restrict:'E',
 		scope:{},
 		controller:controller,
