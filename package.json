@@ -37,10 +37,13 @@
     "del": "^3.0.0"
   },
   "devDependencies": {
+    "angular-cookies": "^1.6.8",
+    "angular-resource": "^1.6.8",
     "babel": "^6.23.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babelify": "^8.0.0",
-    "browserify": "^15.0.0"
+    "browserify": "^15.0.0",
+    "ngstorage": "^0.3.11"
   }
 }
