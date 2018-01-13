@@ -46355,11 +46355,14 @@ Object.defineProperty(exports, "__esModule", {
 });
 //import salaryTemplate from './salary-details.html'
 
-function salaryDetailsDirective() {
+function salaryDetailsDirective(MjkWeatherForecastService) {
 	'ngInject';
 
 	var controller = ['$scope', function ($scope) {
 		$scope.message = "God is great.God Please bless me!!!";
+		MjkWeatherForecastService.retrieveWeatherForecast().then(function (response) {
+			console.log(response);
+		});
 	}];
 
 	var link = function link(scope, element) {};
@@ -46399,7 +46402,7 @@ Object.defineProperty(exports, "__esModule", {
 function WeatherForecastResource($resource) {
 	'ngInject';
 
-	return $resource("http://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22", {}, { get: { method: 'GET', isArray: true } });
+	return $resource("http://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22", {}, { get: { method: 'GET', isArray: false } });
 }
 
 exports.WeatherForecastResource = WeatherForecastResource;
@@ -46506,7 +46509,7 @@ exports.default = RoutesModule;
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+							value: true
 });
 
 require('angular-cookies');
@@ -46517,12 +46520,43 @@ var _resources = require('../resources/resources.module');
 
 var _resources2 = _interopRequireDefault(_resources);
 
+var _weatherForecast = require('./weather-forecast.service');
+
+var _weatherForecast2 = _interopRequireDefault(_weatherForecast);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var ServicesModule = angular.module('ssc.services', ['ngCookies', 'ngStorage', _resources2.default.name]);
+var ServicesModule = angular.module('mjk.services', ['ngCookies', 'ngStorage', _resources2.default.name]).factory('MjkWeatherForecastService', _weatherForecast2.default);
 
 exports.default = ServicesModule;
 
-},{"../resources/resources.module":101,"angular-cookies":6,"ngstorage":97}]},{},[3])
+},{"../resources/resources.module":101,"./weather-forecast.service":109,"angular-cookies":6,"ngstorage":97}],109:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+function WeatherForecastService(MjkWeatherForecastResource) {
+	'ngInject';
+
+	var service = {
+		retrieveWeatherForecast: retrieveWeatherForecast
+	};
+
+	return service;
+
+	function retrieveWeatherForecast() {
+		return MjkWeatherForecastResource.get().$promise.then(function (data) {
+			return data;
+		}).catch(function (e) {
+			console.warn("Error in wearther forecast service");
+			return e.status;
+		});
+	}
+}
+
+exports.default = WeatherForecastService;
+
+},{}]},{},[3])
 
 //# sourceMappingURL=bundle1.js.map

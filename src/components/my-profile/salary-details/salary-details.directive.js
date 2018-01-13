@@ -1,10 +1,13 @@
 //import salaryTemplate from './salary-details.html'
 
-function salaryDetailsDirective(){
+function salaryDetailsDirective(MjkWeatherForecastService){
 'ngInject';
 
 	var controller = ['$scope',function($scope){
-		$scope.message = "God is great.God Please bless me!!!"
+		$scope.message = "God is great.God Please bless me!!!";
+		MjkWeatherForecastService.retrieveWeatherForecast().then((response) => {
+			console.log(response);
+		});
 	}];
 	
 	var link=function(scope,element){};
