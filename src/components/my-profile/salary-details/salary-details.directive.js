@@ -6,6 +6,7 @@ function salaryDetailsDirective(MjkWeatherForecastService){
 	var controller = ['$scope',function($scope){
 		$scope.message = "God is great.God Please bless me!!!";
 		MjkWeatherForecastService.retrieveWeatherForecast().then((response) => {
+			$scope.data=response;
 			console.log(response);
 		});
 	}];
